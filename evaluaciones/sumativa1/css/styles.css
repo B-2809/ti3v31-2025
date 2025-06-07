@@ -1,83 +1,174 @@
+/* Fuente base y colores */
 body {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    background-color: #F5F5F5;
-    color: #2E2E2E;
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  background-color: #F5F5F5;
+  color: #2E2E2E;
+}
+
+/* Header */
+header {
+  background-color: #1B1F3B;
+  color: #F5F5F5;
+  padding: 4rem 2rem;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+header h1 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.eslogan {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+/* Hero imagen principal */
+.hero img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Sección de talleres */
+.talleres {
+  background-color: #ffffff;
+  padding: 3rem 2rem;
+}
+
+.talleres h2 {
+  color: #D72638;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.card {
+  background-color: #F5F5F5;
+  border: 2px solid #F0C808;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.card img {
+  width: 100%;
+  max-height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.card h3 {
+  color: #D72638;
+  margin: 0.5rem 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.card p {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+}
+
+.card span {
+  display: block;
+  font-weight: bold;
+  margin-top: 0.5rem;
+  color: #1B1F3B;
+}
+
+/* Contacto */
+.contacto {
+  background-color: #ffffff;
+  padding: 3rem 2rem;
+}
+
+.contacto h2 {
+  text-align: center;
+  color: #D72638;
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.contacto form {
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contacto input,
+.contacto select {
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.contacto button {
+  background-color: #D72638;
+  color: #fff;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.contacto button:hover {
+  background-color: #b81f2e;
+}
+
+/* Footer */
+footer {
+  background-color: #2E2E2E;
+  color: #F5F5F5;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+footer .redes {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+footer .redes img {
+  width: 30px;
+  height: 30px;
+  filter: invert(100%);
+  transition: transform 0.3s;
+}
+
+footer .redes img:hover {
+  transform: scale(1.2);
+}
+
+
+/* Responsive */
+@media (min-width: 768px) {
+  .cards-container {
+    flex-direction: row;
+    justify-content: space-between;
   }
-  
-  header {
-    background-color: #1B1F3B;
-    color: #F5F5F5;
-    padding: 2rem;
-    text-align: center;
-    font-family: 'Montserrat', sans-serif;
-  }
-  
-  .hero img {
-    width: 100%;
-    max-height: 400px;
-    object-fit: cover;
-  }
-  
-  .talleres {
-    padding: 2rem;
-    background-color: #ffffff;
-  }
-  
-  .talleres h2 {
-    color: #D72638;
-    text-align: center;
-    margin-bottom: 1rem;
-  }
-  
+
   .card {
-    background-color: #F5F5F5;
-    border: 2px solid #F0C808;
-    padding: 1rem;
-    margin: 1rem 0;
-    border-radius: 10px;
+    width: 30%;
   }
-  
-  .contacto {
-    padding: 2rem;
-    background-color: #ffffff;
-  }
-  
-  .contacto form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    max-width: 500px;
-    margin: auto;
-  }
-  
-  .contacto button {
-    background-color: #D72638;
-    color: white;
-    border: none;
-    padding: 0.8rem;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  
-  footer {
-    background-color: #2E2E2E;
-    color: #F5F5F5;
-    text-align: center;
-    padding: 1rem;
-    font-size: 0.9rem;
-  }
-  
-  /* Responsive */
-  @media (min-width: 768px) {
-    .talleres {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-    }
-    .card {
-      margin: 0;
-    }
-  }
-  
+}
