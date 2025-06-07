@@ -9,7 +9,7 @@ body {
 /* Header */
 header {
   background-color: #1B1F3B;
-  color: #F5F5F5;
+  color: #f6f9f8;
   padding: 4rem 2rem;
   text-align: center;
   font-family: 'Montserrat', sans-serif;
@@ -133,7 +133,7 @@ header h1 {
   background-color: #b81f2e;
 }
 
-/* Footer */
+/* Footer redes  */
 footer {
   background-color: #2E2E2E;
   color: #F5F5F5;
@@ -161,7 +161,7 @@ footer .redes img:hover {
 }
 
 
-/* Responsive */
+/* Responsive adpatar la pagina */
 @media (min-width: 768px) {
   .cards-container {
     flex-direction: row;
