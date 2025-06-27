@@ -44,25 +44,39 @@
   </section>
 
   <section class="contacto">
-    <h2>Contáctanos</h2>
-    <form>
-      <label>Nombre:</label>
-      <input type="text" name="nombre" required>
-
-      <label>Correo electrónico:</label>
-      <input type="email" name="correo" required>
-
+    <h2>Formulario de Preinscripción</h2>
+    <form id="formulario">
+      <label>Nombres:</label>
+      <input type="text" id="nombres" required>
+  
+      <label>Apellidos:</label>
+      <input type="text" id="apellidos" required>
+  
+      <label>RUT:</label>
+      <input type="text" id="rut" placeholder="12345678-9" required>
+  
+      <label>Fecha de Nacimiento:</label>
+      <input type="text" id="fechaNacimiento" placeholder="dd/mm/aaaa" required>
+  
       <label>Taller de interés:</label>
-      <select name="taller">
+      <select id="taller" required>
+        <option value="">Seleccione</option>
         <option>Teatro</option>
         <option>Danza</option>
         <option>Pintura</option>
       </select>
-
-      <button type="submit">Enviar</button>
+  
+      <label>Correo electrónico:</label>
+      <input type="email" id="correo" placeholder="ejemplo@dominio.cl" required>
+  
+      <label>Observaciones:</label>
+      <textarea id="observaciones" rows="3"></textarea>
+  
+      <button type="submit">Registrar</button>
     </form>
+    <p id="mensaje" style="color: red; margin-top: 1rem;"></p>
   </section>
-
+  
   <footer>
     <div class="redes">
       <a href="#" target="_blank"><img src="assets/facebook.svg" alt="Facebook"></a>
