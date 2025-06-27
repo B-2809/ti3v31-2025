@@ -84,6 +84,78 @@
       <a href="#" target="_blank"><img src="assets/whatsapp.svg" alt="WhatsApp"></a>
     </div>
     <p>Contacto: contacto@raicesdigitales.cl</p>
-  </footer>  
+  </footer> 
+  <script>
+    document.getElementById("formulario").addEventListener("submit", function (e) {
+      e.preventDefault(); // evita el envío
+    
+      const nombres = document.getElementById("nombres").value.trim();
+      const apellidos = document.getElementById("apellidos").value.trim();
+      const rut = document.getElementById("rut").value.trim();
+      const fecha = document.getElementById("fechaNacimiento").value.trim();
+      const taller = document.getElementById("taller").value;
+      const correo = document.getElementById("correo").value.trim();
+      const mensaje = document.getElementById("mensaje");
+    
+      // Validar campos vacíos
+      if (!nombres || !apellidos || !rut || !fecha || !taller || !correo) {
+        mensaje.textContent = "Todos los campos obligatorios deben estar completos.";
+        return;
+      }
+    
+      // Validación RUT
+      if (!/^\d{7,8}-[\dkK]$/.test(rut)) {
+        mensaje.textContent = "Formato de RUT inválido.";
+        return;
+      }
+    
+      const [num, verificador] = rut.split("-");
+      if (calcularDV(num) !== verificador.toUpperCase()) {
+        mensaje.textContent = "Dígito verificador incorrecto.";
+        return;
+      }
+    
+      // Validar fecha y edad mínima
+      if (!/^(\d{2})\/(\d{2})\/(\d{4})$/.test(fecha)) {
+        mensaje.textContent = "Formato de fecha inválido. Use dd/mm/aaaa.";
+        return;
+      }
+    
+      const [dia, mes, anio] = fecha.split("/").map(Number);
+      const fechaNacimiento = new Date(anio, mes - 1, dia);
+      const hoy = new Date();
+      const edad = hoy.getFullYear() - anio - (hoy.getMonth() + 1 < mes || (hoy.getMonth() + 1 === mes && hoy.getDate() < dia) ? 1 : 0);
+    
+      if (dia < 1 || dia > 31 || mes < 1 || mes > 12 || anio < 1900 || edad < 14) {
+        mensaje.textContent = "Debe tener al menos 14 años.";
+        return;
+      }
+    
+      // Validar correo
+      if (!/^[a-zA-Z0-9.-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9]+$/.test(correo)) {
+        mensaje.textContent = "Formato de correo inválido.";
+        return;
+      }
+    
+      mensaje.style.color = "green";
+      mensaje.textContent = "Formulario enviado correctamente ✅";
+    });
+    
+    // Función para calcular dígito verificador del RUT
+    function calcularDV(rut) {
+      let suma = 0;
+      let multiplo = 2;
+    
+      for (let i = rut.length - 1; i >= 0; i--) {
+        suma += parseInt(rut[i]) * multiplo;
+        multiplo = multiplo === 7 ? 2 : multiplo + 1;
+      }
+    
+      const resto = 11 - (suma % 11);
+      if (resto === 11) return "0";
+      if (resto === 10) return "K";
+      return resto.toString();
+    }
+    </script>     
 </body>
 </html>
